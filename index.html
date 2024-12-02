@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <title>Music Player</title>
+  </head>
+  <body>
+    <audio src="" id="audio"></audio>
+    <div class="music-player">
+      <h1 class="music-name">song one</h1>
+      <p class="artist-name">artist</p>
+      <div class="disk"></div>
+      <div class="bar-list">
+        <div class="bars">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+      </div>
+      <div class="song-slider">
+        <input type="range" value="0" class="seek-bar" />
+        <span class="current-time">00:00</span>
+        <span class="song-duration">00:00</span>
+      </div>
+
+      <div class="controls">
+        <button class="btn backward-btn">
+          <img src="./Images/pre.png" alt="" />
+        </button>
+        <button class="play_btn pause">
+          <span></span>
+          <span></span>
+        </button>
+        <button class="btn forwrard-btn">
+          <img src="./Images/nxt.png" alt="" />
+        </button>
+      </div>
+    </div>
+    <script src="./js/data.js"></script>
+    <script src="./js/app.js"></script>
+  </body>
+</html>
