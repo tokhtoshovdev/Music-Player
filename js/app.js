@@ -35,7 +35,7 @@ function createAudioList() {
 }
 
 const toggleMusic = () => {
-  if (audioList.childElementCount === 0) createAudioList(); // faqat bir marta ro‘yxat yaratish
+  if (audioList.childElementCount === 0) createAudioList();
   audioList.classList.toggle("hidden");
 };
 
