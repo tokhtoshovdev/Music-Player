@@ -13,17 +13,39 @@ body {
   background: #5f7a61;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
+  overflow: hidden;
 }
 
 .music-player {
   width: 350px;
-  height: 550px;
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.08);
   box-shadow: 0 40px 100px rgba(255, 255, 255, 0.1);
   padding: 30px;
   overflow: hidden;
   color: #d5eebb;
+}
+
+.player_head {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.player_head button {
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.song_img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
 }
 
 .music-name,
@@ -42,6 +64,41 @@ body {
   font-size: 20px;
 }
 
+.audio_list {
+  position: absolute;
+  top: 0;
+  left: 130px;
+  transform: translate(-50%, 50%);
+  width: 260px;
+  max-height: 400px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.audio_list.show {
+  transform: translateX(-50%) scaleY(1);
+  opacity: 1;
+}
+
+.song_item {
+  width: 240px;
+  align-items: center;
+  gap: 10px;
+  display: flex;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.song_item:hover {
+  background-color: #d5eebb;
+}
+
 .disk {
   position: relative;
   display: block;
@@ -49,6 +106,7 @@ body {
   width: 180px;
   height: 180px;
   border-radius: 50%;
+  margin-bottom: 50px;
   background-image: url("../Images/18-yosh.jpg");
   background-size: cover;
   background-position: center;
@@ -59,6 +117,10 @@ body {
 
 .disk.play {
   animation-play-state: running;
+}
+
+.hidden {
+  display: none;
 }
 
 .disk::before {
@@ -74,7 +136,7 @@ body {
   box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.08);
 }
 
-.song-slider {
+.song_item .song-slider {
   width: 100%;
   position: relative;
 }
@@ -100,9 +162,9 @@ body {
   font-size: 14px;
 }
 
-.song-duration {
-  position: absolute;
-  right: 0;
+.song-timer {
+  display: flex;
+  justify-content: space-between;
 }
 
 .controls {
@@ -188,86 +250,5 @@ body {
   }
   100% {
     transform: rotate(360deg);
-  }
-}
-
-.bar-list {
-  height: 50px;
-  margin-bottom: 10px;
-}
-
-.bar {
-  margin: 15px 0;
-  display: inline-block;
-  width: 5px;
-  background: #2f3e46;
-  height: 3px;
-}
-
-.bar-item {
-  animation: anim 0.5s linear infinite;
-}
-
-.bar:nth-child(1),
-.bar:nth-child(7),
-.bar:nth-child(13),
-.bar:nth-child(19),
-.bar:nth-child(25),
-.bar:nth-child(31),
-.bar:nth-child(37) {
-  animation-duration: 0.6s;
-}
-.bar:nth-child(2),
-.bar:nth-child(8),
-.bar:nth-child(14),
-.bar:nth-child(20),
-.bar:nth-child(26),
-.bar:nth-child(32),
-.bar:nth-child(38) {
-  animation-duration: 0.4s;
-}
-.bar:nth-child(3),
-.bar:nth-child(9),
-.bar:nth-child(15),
-.bar:nth-child(21),
-.bar:nth-child(27),
-.bar:nth-child(33),
-.bar:nth-child(39) {
-  animation-duration: 0.52s;
-}
-.bar:nth-child(4),
-.bar:nth-child(10),
-.bar:nth-child(16),
-.bar:nth-child(22),
-.bar:nth-child(28),
-.bar:nth-child(34),
-.bar:nth-child(40) {
-  animation-duration: 0.48s;
-}
-.bar:nth-child(5),
-.bar:nth-child(11),
-.bar:nth-child(17),
-.bar:nth-child(23),
-.bar:nth-child(29),
-.bar:nth-child(35) {
-  animation-duration: 0.36s;
-}
-.bar:nth-child(6),
-.bar:nth-child(12),
-.bar:nth-child(18),
-.bar:nth-child(24),
-.bar:nth-child(30),
-.bar:nth-child(36) {
-  animation-duration: 0.4s;
-}
-
-@keyframes anim {
-  0% {
-    height: 3px;
-  }
-  100% {
-    height: 50px;
-  }
-  95% {
   }
 }

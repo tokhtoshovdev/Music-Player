@@ -3,52 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./css/main.css" />
     <title>Music Player</title>
   </head>
   <body>
     <audio src="" id="audio"></audio>
+    <div class="audio_list hidden"></div>
+
     <div class="music-player">
+      <div class="player_head">
+        <button><i class="bx bx-music"></i></button>
+        <button onclick="toggleMusic()">
+          <i class="bx bxs-playlist"></i>
+        </button>
+      </div>
       <h1 class="music-name">song one</h1>
       <p class="artist-name">artist</p>
       <div class="disk"></div>
-      <div class="bar-list">
-        <div class="bars">
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-        </div>
-      </div>
+
       <div class="song-slider">
         <input type="range" value="0" class="seek-bar" />
-        <span class="current-time">00:00</span>
-        <span class="song-duration">00:00</span>
+        <div class="song-timer">
+          <span class="current-time">00:00</span>
+          <span class="song-duration">00:00</span>
+        </div>
       </div>
 
       <div class="controls">

@@ -12,6 +12,46 @@ const backwardBtn = document.querySelector(".backward-btn");
 const forwardBtn = document.querySelector(".forwrard-btn");
 const bars = document.querySelectorAll(".bar");
 
+const audioList = document.querySelector(".audio_list");
+
+function createAudioList() {
+  songs.forEach((song, index) => {
+    const li = document.createElement("li");
+    li.classList.add("song_item");
+    li.innerHTML = `
+    <h4>${song.id}</h4>
+    <div class="img">
+    <img class="song_img" src="${song.cover}" alt="" />
+    </div>
+    <div class="song_info">
+    <h4>${song.name}</h4>
+    <h4>${song.artist}</h4>
+    </div>
+    `;
+    audioList.appendChild(li);
+    li.addEventListener("click", () => {
+      setMusic(index);
+      playMusic();
+    });
+  });
+}
+
+const toggleMusic = () => {
+  createAudioList();
+  audioList.classList.toggle("hidden");
+};
+
+playBtn.addEventListener("click", () => {
+  if (playBtn.className.includes("pause")) {
+    music.play();
+  } else {
+    music.pause();
+  }
+
+  playBtn.classList.toggle("pause");
+  disk.classList.toggle("play");
+});
+
 playBtn.addEventListener("click", () => {
   if (playBtn.className.includes("pause")) {
     music.play();
@@ -60,6 +100,18 @@ setInterval(() => {
     playNext();
   }
 }, 500);
+
+playBtn.addEventListener("click", () => {
+  if (playBtn.className.includes("pause")) {
+    music.play();
+    playBtn.classList.remove("pause");
+    disk.classList.add("play");
+  } else {
+    music.pause();
+    playBtn.classList.add("pause");
+    disk.classList.remove("play");
+  }
+});
 
 const playMusic = () => {
   music.play();
