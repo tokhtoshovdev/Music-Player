@@ -10,8 +10,6 @@ const musicDuration = document.querySelector(".song-duration");
 const playBtn = document.querySelector(".play_btn");
 const backwardBtn = document.querySelector(".backward-btn");
 const forwardBtn = document.querySelector(".forwrard-btn");
-const bars = document.querySelectorAll(".bar");
-
 const audioList = document.querySelector(".audio_list");
 
 function createAudioList() {
@@ -37,32 +35,20 @@ function createAudioList() {
 }
 
 const toggleMusic = () => {
-  createAudioList();
+  if (audioList.childElementCount === 0) createAudioList(); // faqat bir marta ro‘yxat yaratish
   audioList.classList.toggle("hidden");
 };
 
 playBtn.addEventListener("click", () => {
-  if (playBtn.className.includes("pause")) {
+  if (playBtn.classList.contains("pause")) {
     music.play();
+    playBtn.classList.remove("pause");
+    disk.classList.add("play");
   } else {
     music.pause();
+    playBtn.classList.add("pause");
+    disk.classList.remove("play");
   }
-
-  playBtn.classList.toggle("pause");
-  disk.classList.toggle("play");
-});
-
-playBtn.addEventListener("click", () => {
-  if (playBtn.className.includes("pause")) {
-    music.play();
-    bars.forEach((bar) => bar.classList.add("bar-item"));
-  } else {
-    music.pause();
-    bars.forEach((bar) => bar.classList.remove("bar-item"));
-  }
-
-  playBtn.classList.toggle("pause");
-  disk.classList.toggle("play");
 });
 
 const setMusic = (i) => {
@@ -101,24 +87,6 @@ setInterval(() => {
   }
 }, 500);
 
-playBtn.addEventListener("click", () => {
-  if (playBtn.className.includes("pause")) {
-    music.play();
-    playBtn.classList.remove("pause");
-    disk.classList.add("play");
-  } else {
-    music.pause();
-    playBtn.classList.add("pause");
-    disk.classList.remove("play");
-  }
-});
-
-const playMusic = () => {
-  music.play();
-  playBtn.classList.remove("pause");
-  disk.classList.add("play");
-};
-
 seekBar.addEventListener("change", () => {
   music.currentTime = seekBar.value;
 });
@@ -137,3 +105,9 @@ const playPrevious = () => {
 
 forwardBtn.addEventListener("click", playNext);
 backwardBtn.addEventListener("click", playPrevious);
+
+const playMusic = () => {
+  music.play();
+  playBtn.classList.remove("pause");
+  disk.classList.add("play");
+};
