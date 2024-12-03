@@ -52,7 +52,6 @@ const formatTime = (time) => {
   return `${min}:${sec}`;
 };
 
-// Vaqtni yangilash va avtomatik keyingi qo'shiqqa o'tish
 setInterval(() => {
   seekBar.value = music.currentTime;
   currentTime.innerHTML = formatTime(music.currentTime);
